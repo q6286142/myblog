@@ -9,4 +9,4 @@ tmp
 build
 build-es
 .idea
-dist/*/*.*
+dist/*
