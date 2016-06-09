@@ -11,4 +11,4 @@ mongo.on('error', function(err){
     }
 });
 
-module.exports = mongo;
+export default mongo;
