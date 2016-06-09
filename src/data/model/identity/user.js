@@ -7,7 +7,10 @@ let user = new mongo.Schema('user',{
         type:String,
         default:'user'
     },
-    userName:'string',
+    userName:{
+        type:String,
+        required:true
+    },
     email:'string',
     password:'string',
     github:{
