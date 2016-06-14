@@ -11,3 +11,4 @@ build
 build-es
 .idea
 dist/*
+.vscode
