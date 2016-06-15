@@ -1,5 +1,6 @@
 node_modules
 mochawesome-reports
+mochawesome-report
 perf/versions
 nyc_output
 coverage
@@ -12,3 +13,4 @@ build-es
 .idea
 dist/*
 .vscode
+typings/*

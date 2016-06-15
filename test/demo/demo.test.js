@@ -38,6 +38,7 @@ describe('加法函数的测试', () => {
   });
 
   it("deep test", () => {
+    foo = { bar: 'baz' };
     expect(foo).to.be.deep.equal({ bar: 'baz' });
   });
 

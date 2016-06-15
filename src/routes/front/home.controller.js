@@ -1,7 +1,22 @@
 export default function homeController(router) {
 
-    router.get('/', function (req, res, next) {
-        res.render('index', { title: '我的 Express' });
-    });
-    
+
+
+    return {
+        /**
+         * 
+         */
+        '/': (req, res, next) => {
+            res.render('index', { title: '我的 Express' });
+        },
+        /**
+         * 
+         */
+        '/master': (req, res, next) => {
+
+        },
+        post: {
+
+        }
+    }
 }

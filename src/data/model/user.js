@@ -4,15 +4,15 @@ let user = new mongo.Schema('user', {
     photo: {
         type: String
     },
-    displayName: {
+    nickname: {
         type: String,
-        required: true
+        unique:true
     },
     role: {
         type: String,
         default: 'user'
     },
-    userName: {
+    username: {
         type: String,
         required: true
     },
@@ -32,13 +32,9 @@ let user = new mongo.Schema('user', {
     },
     weibo: {
 
-    },
-    wixin: {
-
-    },
-    alipay: {
-
     }
 });
+
+
 
 export default user;

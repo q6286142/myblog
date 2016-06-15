@@ -2,15 +2,26 @@
 // import users from '../routes/users';
 // import error from '../routes/error';
 // import admin from '../routes/admin';
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import {System} from 'es6-module-loader';
 
 export default function initRoutes(app) {
-    // app.use('/', routes);
-    // app.use('/users', users);
-    // app.use('/admin', admin);
-    // app.use(error);
+    let rootPath = path.dirname(__dirname);
+    let adminControllerPath = path.join(rootPath, 'routes/admin');
+    let frontControllerPath = path.join(rootPath, 'routes/front');
 
-    let adminControllerPath = '';
-    let frontControllerPath = '';
+    let adminRoutes = express.Router();
+    let frontRoutes = express.Router();
+
+    fs.readdirSync(adminControllerPath).forEach((file) => {
+        let filePath = path.join(adminControllerPath,file);
+        if (/(.*)\.(js$)/.test(file)) {
+            System.import(filePath);
+        }
+    });
+
 
     return app;
 };

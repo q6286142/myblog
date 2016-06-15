@@ -2,13 +2,20 @@ import gulp from 'gulp';
 import gulpMocha from 'gulp-mocha';
 import gulpBabel from 'gulp-babel';
 import gulpSourcemaps from 'gulp-sourcemaps';
+import del from 'del';
 
-
-gulp.task('build', ['babel', 'public', 'view']);
+gulp.task('publish', ['babel', 'public', 'view']);
 
 gulp.task('test', () => {
+    del.sync('./test/mochawesome-reports/**/*');
     return gulp.src('test/**/*.js')
-        .pipe(gulpMocha())
+        .pipe(gulpMocha({
+            reporter:'mochawesome',
+            reporterOptions: {
+                reportDir: './test/mochawesome-reports'
+            },
+            compilers:'js:node_modules/babel-core/register'
+        }))
         .on('error', () => {
             gulp.emit('end');
         });
