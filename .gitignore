@@ -1,6 +1,5 @@
 node_modules
 mochawesome-reports
-mochawesome-report
 perf/versions
 nyc_output
 coverage

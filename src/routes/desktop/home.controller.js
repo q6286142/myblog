@@ -6,17 +6,17 @@ export default function homeController(router) {
         /**
          * 
          */
-        '/': (req, res, next) => {
+        'get:/': (req, res, next) => {
             res.render('index', { title: '我的 Express' });
         },
         /**
          * 
          */
-        '/master': (req, res, next) => {
+        'get:/master': (req, res, next) => {
 
         },
-        post: {
-
+        '': ()=>{
+            
         }
     }
 }

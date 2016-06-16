@@ -2,24 +2,19 @@
 // import users from '../routes/users';
 // import error from '../routes/error';
 // import admin from '../routes/admin';
-import express from 'express';
+import uaparser from 'ua-parser-js';
 import fs from 'fs';
 import path from 'path';
-import {System} from 'es6-module-loader';
+import desktopRouter from '../routes/desktop.route';
+import adminRouter from '../routes/admin.route';
+import mobileRouter from '../routes/api.route';
 
 export default function initRoutes(app) {
-    let rootPath = path.dirname(__dirname);
-    let adminControllerPath = path.join(rootPath, 'routes/admin');
-    let frontControllerPath = path.join(rootPath, 'routes/front');
+    app.use('/admin',adminRouter);
 
-    let adminRoutes = express.Router();
-    let frontRoutes = express.Router();
-
-    fs.readdirSync(adminControllerPath).forEach((file) => {
-        let filePath = path.join(adminControllerPath,file);
-        if (/(.*)\.(js$)/.test(file)) {
-            System.import(filePath);
-        }
+    app.use(/\/(?!admin)(\w)*/ig,(req, res, next)=>{
+        let ua = uaparser(req.headers['user-agent']);
+        res.render('mobile',{title:"移动设备"});
     });
 
 
