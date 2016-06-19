@@ -2,9 +2,12 @@ import gulp from 'gulp';
 import gulpMocha from 'gulp-mocha';
 import gulpBabel from 'gulp-babel';
 import gulpSourcemaps from 'gulp-sourcemaps';
+import runSequence from 'gulp-run-sequence';  
 import del from 'del';
 
-gulp.task('publish', ['babel', 'public', 'view']);
+gulp.task('publish', ()=>{
+    runSequence('babel', 'public', 'view');
+});
 
 gulp.task('test', () => {
     del.sync('./test/mochawesome-reports/**/*');
@@ -22,6 +25,7 @@ gulp.task('test', () => {
 });
 
 gulp.task('babel', () => {
+    del.sync('./dist');
     return gulp.src('src/**/*.js')
         .pipe(gulpSourcemaps.init())
         .pipe(gulpBabel())
