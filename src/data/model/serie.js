@@ -1,5 +1,5 @@
 export default function (Schema){
-    mongoose.model('Tag',{
+    mongoose.model('Serie',{
         title: {
             type: String,
             required:true,
@@ -9,13 +9,13 @@ export default function (Schema){
             type: String,
             required:true
         },
-        brief: {
+        description: {
             type: String,
             required:true
         },
-        website: {
-            type: String,
-            required: true
+        created:{
+            type:Date,
+            default:Date.now
         }
     });
 };

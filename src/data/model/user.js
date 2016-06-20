@@ -1,40 +1,42 @@
-import mongo from '../db';
+export default function (Schema){
+    mongoose.model('User',{
+        photo: {
+            type: String
+        },
+        nickname: {
+            type: String,
+            unique: true
+        },
+        role: {
+            type: String,
+            default: 'user'
+        },
+        username: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        email: {
+            type: String,
+            required: true,
+            lowercase: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        provider: {
+            type: String,
+            default: 'local'
+        }//,
+        // github: {
 
-let user = new mongo.Schema('user', {
-    photo: {
-        type: String
-    },
-    nickname: {
-        type: String,
-        unique:true
-    },
-    role: {
-        type: String,
-        default: 'user'
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    github: {
+        // },
+        // qq: {
 
-    },
-    qq: {
+        // },
+        // weibo: {
 
-    },
-    weibo: {
-
-    }
-});
-
-
-
-export default user;
+        // }
+    });
+};

@@ -7,6 +7,7 @@ import bodyParser from 'body-parser';
 
 import initRoutes from './routes';
 import initServer from './server';
+import initDB from './data/db';
 
 let app = express();
 app.set('view engine', 'jade');
@@ -21,6 +22,7 @@ function start(dirname) {
     app.set('views', viewPath);
     app.use(favicon(path.join(pubilcPath, 'favicon.ico')));
     app.use(express.static(viewPath));
+    initDB();
     app = initRoutes(app);
     initServer(app);
 }
