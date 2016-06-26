@@ -1,10 +1,5 @@
 node_modules
 mochawesome-reports
-*.log
-.DS_Store
 npm-debug.log
-tmp
-build
-build-es
 dist/*
 typings/*

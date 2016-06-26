@@ -2,6 +2,7 @@
   "globalDependencies": {
     "chai": "registry:dt/chai#3.4.0+20160317120654",
     "express": "registry:dt/express#4.0.0+20160317120654",
+    "lodash": "registry:dt/lodash#3.10.0+20160619033623",
     "mocha": "registry:dt/mocha#2.2.5+20160317120654",
     "mongoose": "registry:dt/mongoose#3.8.5+20160614090725",
     "node": "registry:dt/node#6.0.0+20160613154055"
