@@ -7,6 +7,4 @@ tmp
 build
 build-es
 dist/*
-.vscode
 typings/*
-typings.json
