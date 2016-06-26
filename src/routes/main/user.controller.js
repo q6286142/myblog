@@ -1,16 +1,12 @@
 import express from 'express';
+import isAuthenticated from '../../service/identity/authentication';
+import isAuthorized from '../../service/identity/authorize';
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
-
-router.param(function(param, validator) {
+router.param( (param, validator) => {
   return function (req, res, next, val) {
     if (validator(val)) {
-      console.log('CALLED ONLY ONCE '+ val)
+      console.log('CALLED ONLY ONCE ' + val)
       next();
     }
     else {
@@ -19,24 +15,22 @@ router.param(function(param, validator) {
   }
 });
 
-router.param('id', function (candidate) {
+router.param('id', (candidate) => {
   return !isNaN(parseFloat(candidate)) && isFinite(candidate);
 });
 
-// router.param('id', function (req, res, next, id) {
-//   console.log('CALLED ONLY ONCE '+ id);
-//   next();
-// });
-
-router.get('/user/:id', function (req, res, next) {
-  res.send('although this matches   id : ' + req.params.id);
-  next();
-});
-
-router.get('/user/:id', function (req, res) {
+router.get('/user/:id', (req, res) => {
   console.log('and this matches too   id : ' + req.params.id);
   res.end();
 });
+
+router.get('/signin', (req, res) => {
+
+});
+
+router.get('/register', (req, res) => {
+
+})
 
 
 export default router;
