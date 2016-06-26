@@ -3,3 +3,8 @@ mochawesome-reports
 npm-debug.log
 dist/*
 typings/*
+.vscode/*
+jsconfig.json
+typings.json
+
+
