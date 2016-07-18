@@ -5,11 +5,12 @@ import path from 'path';
 
 const uri = 'mongodb://qjy:6286142jia!@localhost:27017/blog';
 
-function initModel(mongoose){
+function initModel(mongoose) {
     let modelsPath = path.join(__dirname, 'model');
     fs.readdirSync(modelsPath).forEach(function (file) {
-        if (/(.*)\.(js$)/.test(file)) {
+        if (/(.*)\.(js$)/.test(file)) {          
             require(modelsPath + '/' + file)(mongoose);
+            console.log('<-- 已加载 model ' + file + ' -->');
         }
     });
 }

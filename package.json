@@ -1,7 +1,10 @@
 {
   "name": "BlogApp",
   "version": "0.0.1",
-  "author": "Jorex",
+  "author": {
+    "name": "Jorex",
+    "email": "q6286142@163.com"
+  },
   "description": "个人小博客，也算是练习",
   "keywords": [
     "node",
@@ -14,17 +17,18 @@
     "url": "https://github.com/q6286142/myblog"
   },
   "engines": {
-    "node":"^6.*"
+    "node": "^6.*"
   },
   "private": true,
   "scripts": {
     "start": "node ./dist/start.js",
     "es6-start": "babel-node ./src/start.js",
     "publish": "gulp publish",
-    "test": "gulp test"
+    "test": "gulp test",
+    "initDb": "gulp initDb"
   },
   "dependencies": {
-    "babel-cli": "^6.9.0",
+    "babel-cli": "^6.10.1",
     "babel-polyfill": "^6.9.1",
     "babel-register": "^6.9.0",
     "bluebird": "^3.4.1",
@@ -35,13 +39,14 @@
     "cors": "^2.7.1",
     "debug": "~2.2.0",
     "del": "^2.2.1",
-    "express": "^4.13.4",
+    "express": "^4.14.0",
     "express-jwt": "^3.4.0",
-    "express-session": "^1.13.0",
+    "express-session": "^1.14.0",
+    "glob": "^7.0.5",
     "jade": "~1.11.0",
-    "jsonwebtoken": "^7.0.1",
+    "jsonwebtoken": "^7.1.3",
     "lodash": "^4.13.1",
-    "mongoose": "^4.5.2",
+    "mongoose": "^4.5.4",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-github": "^1.1.0",
@@ -52,7 +57,7 @@
     "serve-favicon": "~2.3.0",
     "superagent": "^2.0.0",
     "ua-parser-js": "^0.7.10",
-    "vue": "^1.0.25"
+    "vue": "^1.0.26"
   },
   "devDependencies": {
     "babel-cli": "^6.9.0",
@@ -81,6 +86,7 @@
     "gulp-content-includer": "0.0.7",
     "gulp-imagemin": "^3.0.1",
     "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.2.4",
     "gulp-minify-css": "^1.2.4",
     "gulp-mocha": "^2.2.0",
     "gulp-notify": "^2.2.0",
@@ -97,7 +103,7 @@
     "mocha": "^2.5.3",
     "mochawesome": "^1.3.5",
     "node-sass": "^3.8.0",
-    "sass-loader": "^3.2.2",
+    "sass-loader": "^3.2.3",
     "typings": "^1.3.0",
     "url-loader": "^0.5.7",
     "vue-hot-reload-api": "^1.3.3",

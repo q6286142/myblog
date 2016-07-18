@@ -1,4 +1,5 @@
-export default function (Schema){
+module.exports = (mongoose) => {
+    let Schema = mongoose.Schema;
     mongoose.model('Tag',{
         title: {
             type: String,

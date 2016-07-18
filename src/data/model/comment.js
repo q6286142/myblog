@@ -1,11 +1,12 @@
-export default function (Schema){
+module.exports = (mongoose) => {
+    let Schema = mongoose.Schema;
     mongoose.model('Comment',{
         a_id:{
-            type:Schema.type.ObjectId,
+            type:Schema.Types.ObjectId,
             ref:'Article'
         },
         u_id:{
-            type:Schema.type.ObjectId,
+            type:Schema.Types.ObjectId,
             ref:'User'
         },
         content:String,
