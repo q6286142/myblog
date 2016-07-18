@@ -16,7 +16,7 @@ export default function initServer(app) {
             ? 'pipe ' + addr
             : 'port ' + addr.port;
         debug('Listening on ' + bind);
-    })
+    });
 
     server.on('error', (error) => {
         if (error.syscall !== 'listen') {

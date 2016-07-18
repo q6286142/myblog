@@ -6,5 +6,6 @@ typings/*
 .vscode/*
 jsconfig.json
 typings.json
+src/config/db.config.js
 
 

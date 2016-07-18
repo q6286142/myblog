@@ -2,8 +2,7 @@ import mongoose from 'mongoose';
 import promise from 'bluebird';
 import fs from 'fs';
 import path from 'path';
-
-const uri = 'mongodb://qjy:6286142jia!@localhost:27017/blog';
+import dbconfig from '../config/db.config';
 
 function initModel(mongoose) {
     let modelsPath = path.join(__dirname, 'model');
@@ -18,7 +17,7 @@ function initModel(mongoose) {
 export default function initDb() {
     console.log('<--初始化数据库连接-->');
     mongoose.Promise = promise;
-    mongoose.connect(uri, (err) => {
+    mongoose.connect(dbconfig.connect, (err) => {
         if (err) {
             throw err;
         }

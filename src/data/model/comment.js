@@ -10,7 +10,7 @@ module.exports = (mongoose) => {
             ref:'User'
         },
         content:String,
-        replys: [{
+        replys: [{          //回答 的 讨论
             content: String,
             u_id:Object,
             created: Date

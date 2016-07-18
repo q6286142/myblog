@@ -1,15 +1,13 @@
 import * as common from '../../common';
 
 module.exports = (gulp, Plugin, rootDirectory) => {
-    console.log(JSON.stringify(Plugin));
-
     function getEval(useScript, isUseAdmin) {
         let initEval = 'mongo --eval ';
-        initEval += '\'';
+        initEval += '\"';
         if (isUseAdmin) {
             initEval += 'use admin;';
         }
-        return initEval + useScript + '\'';
+        return initEval + useScript + '\"';
     }
 
     gulp.task('create-user', () => {
@@ -20,13 +18,9 @@ module.exports = (gulp, Plugin, rootDirectory) => {
                 description: "",
                 email: ""
             },
-            roles: [
-                { role: "clusterAdmin", db: "blog" },
-                { role: "readAnyDatabase", db: "blog" },
-                "readWrite"
-            ]
+            roles: ["readWrite"]
         };
-        var execScript = 'db.createUser(' + JSON.stringify(dbUserConfig) + ');';
+        var execScript = ' db.createUser(' + JSON.stringify(dbUserConfig) + ');';
         common.runCommand(getEval(execScript, false))();
     });
 
@@ -40,5 +34,12 @@ module.exports = (gulp, Plugin, rootDirectory) => {
     gulp.task('init-db', (cb) => {
         Plugin.runSequence('create-user', cb);
     });
+
+    gulp.task('get-db-list',()=>{
+        //var execScript = ' db = connect("localhost:27020/admin"); ';
+        //execScript += ' db = conn.getDB(\"admin\"); ';   ; 
+        var execScript ='db.adminCommand(\'listDatabases\');';
+        common.runCommand(getEval(execScript))();
+    })
 }
 

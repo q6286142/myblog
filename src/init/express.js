@@ -7,7 +7,7 @@ import bodyParser from 'body-parser';
 
 import initRoutes from './routes';
 import initServer from './server';
-import initDB from './data/db';
+import initDB from '../data/db';
 
 let app = express();
 app.set('view engine', 'jade');
