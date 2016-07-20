@@ -16,18 +16,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-function start(dirname) {
+export default function start(dirname) {
     let viewPath = path.join(dirname, 'views');
     let pubilcPath = path.join(dirname, 'public');
     app.set('views', viewPath);
-    app.use(favicon(path.join(pubilcPath, 'favicon.ico')));
+    app.use(favicon(path.join(pubilcPath, '/common/favicon.ico')));
     app.use(express.static(viewPath));
-    initDB();
-    app = initRoutes(app);
-    initServer(app);
-}
 
-export {start};
+
+    initDB(() => {
+        app = initRoutes(app);
+        initServer(app);
+    });   
+}
 
 
 

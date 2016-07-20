@@ -1,3 +1,3 @@
-import * as Appication from './init/express';
+import AppicationStart from './init/express';
 
-Appication.start(__dirname);
+AppicationStart(__dirname);

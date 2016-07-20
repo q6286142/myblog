@@ -1,21 +1,18 @@
 import path from 'path';
 import del from 'del';
-const TEST_SRC_FILE = 'test/**/*.js';
-const MOCHAWESOME_REPORTS = 'test/mochawesome-reports';
-module.exports = (gulp, Plugin, rootDirectory) => {
-    let mochawesomeReportsPath = path.join(rootDirectory, MOCHAWESOME_REPORTS);
 
-    gulp.task('clean-reports', () => {
-        return gulp.src(mochawesomeReportsPath)
+module.exports = (gulp, Plugin, config) => {
+    gulp.task('test:clean-reports', () => {
+        return gulp.src(config.path.testReports)
             .pipe(Plugin.clean());
     });
 
-    gulp.task('test-config', () => {
-        return gulp.src(path.join(rootDirectory, TEST_SRC_FILE))
+    gulp.task('test:config', () => {
+        return gulp.src(config.path.test)
             .pipe(Plugin.mocha({
                 reporter: 'mochawesome',
                 reporterOptions: {
-                    reportDir: mochawesomeReportsPath
+                    reportDir: config.path.testReports
                 },
                 compilers: 'js:node_modules/babel-core/register'
             }))

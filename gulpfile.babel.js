@@ -1,9 +1,11 @@
 import gulp from 'gulp';
 import Plugin from 'gulp-load-plugins';
 import glob from 'glob';
+import GulpConfig from './tools/gulp/gulp.config';
 
+let gulpConfig = GulpConfig(__dirname);
 glob.sync('./tools/gulp/task/**/*.js').forEach((fileName)=>{
-    require(fileName)(gulp, Plugin(), __dirname);
+    require(fileName)(gulp, Plugin(), gulpConfig);
 });
 
 
