@@ -1,6 +1,6 @@
 module.exports = (mongoose) => {
     let Schema = mongoose.Schema;
-    mongoose.model('User',{
+    return mongoose.model('User',{
         photo: {
             type: String
         },

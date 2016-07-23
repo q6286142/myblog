@@ -1,34 +1,37 @@
 import express from 'express';
-import {} from '../../service/identity/authentication';
-import {} from '../../service/identity/authorize';
+import identity from '../../middlewares/identityMiddleware/identity';
 
-var router = express.Router();
+let router = express.Router();
 
 /* GET users listing. */
-router.post('/signin', (req, res) => {
+router.post('/signin', (req, res, next) => {
     res.send('respond with a resource');
 });
 
-router.post('/signout', (req, res) => {
+router.post('/signout', (req, res, next) => {
     res.send('respond with a resource');
 });
 
-router.post('/getList', (req, res) => {
+router.post('/list', (req, res, next) => {
     res.send('respond with a resource');
 });
 
-router.post('/getInfo/:id', (req, res) => {
+router.post('/register', (req, res, next) => {
     res.send('respond with a resource');
 });
 
-router.post('/register', (req, res) => {
+router.post('/info/:id', (req, res, next) => {
     res.send('respond with a resource');
 });
 
-router.post('/update/:id', (req, res) => {
+router.post('/delete/:id', (req, res, next) => {
     res.send('respond with a resource');
 });
 
-router.post('/getProvider', (req, res) => {
+router.post('/update/:id', (req, res, next) => {
+    res.send('respond with a resource');
+});
+
+router.post('/getProvider', (req, res, next) => {
     res.send('respond with a resource');
 });

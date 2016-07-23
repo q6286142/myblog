@@ -10,7 +10,7 @@ import apiRoute from '../routes/api.route';
 
 export default function initRoutes(app) {
     app.use('/admin', adminRoute); 
-    app.use(apiRoute);
+    app.use('/api',apiRoute);
     app.use(mainRoute);
     return app;
 };

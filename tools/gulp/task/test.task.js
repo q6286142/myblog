@@ -22,6 +22,6 @@ module.exports = (gulp, Plugin, config) => {
     });
 
     gulp.task('test', (cb) => {
-        Plugin.runSequence('clean-reports', 'test-config', cb)
+        Plugin.runSequence('test:clean-reports', 'test:config', cb)
     });
 } 

@@ -1,23 +1,24 @@
 import chai from 'chai';
 import mongoose from 'mongoose';
 import initDB from '../../src/data/db';
-import '../../src/data/model/user';
-initDB();
+import  '../../src/data/model/user';
 
 let expect = chai.expect;
-
 describe('mongoose test demo', (done) => {
     let mockUser = 'test01' + new Date().getTime() + '@tets.com';
-    let User = mongoose.model('User');
+    let User;
     let user;
     before((done) => {
-        user = new User({
-            nickname: '测试' + new Date().getTime(),
-            password: 'test',
-            role: 'user',
-            status: 1
-        });
-        done();
+        initDB(()=>{
+            User = mongoose.model('User');
+            user = new User({
+                nickname: '测试' + new Date().getTime(),
+                password: 'test',
+                role: 'user',
+                status: 1
+            });
+            done();
+        });       
     });
 
     it('create user error', (done) => {
