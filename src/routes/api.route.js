@@ -1,10 +1,11 @@
 import express from 'express';
-var router = express.Router();
+import Load from '../middlewares/controller/load';
 
-
-
-/* GET admin index page. */
-
-//module.exports = router;
-
-export default router;
+module.exports = (app) => {
+    let load = new Load(app, { cwd: __dirname });
+    return load
+        .setFolderDirectory('./api')
+        .use('user')
+        .use('article')
+        .getApp();
+}

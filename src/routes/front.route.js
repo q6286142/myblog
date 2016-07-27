@@ -34,4 +34,8 @@ router.get(/(\/index)?/, (req, res, next) => {
     res.render('index', { title: '我的blog' });
 });
 
-export default router;
+module.exports = (app) => {
+    app.use(router);
+}
+
+

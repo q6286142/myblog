@@ -2,13 +2,20 @@
 import {normalizePort} from '../util/normalize';
 import Debug from 'debug';
 import http from 'http';
+import _ from 'lodash';
 
-export default function initServer(app) {
-    let debug = Debug('BlogApp:server');
-    let port = normalizePort(process.env.PORT || '3000');
+let defaultOption = {
+    port:'3000',
+    host:'localhst'
+}
+
+export default function initServer(app,option) {
+    option = _.defaults(option,defaultOption);
+    let debug = Debug(app.locals.title);
+    let port = normalizePort(process.env.PORT || option.port);
     let server = http.createServer(app);
 
-    server.listen(port, 'localhost');
+    server.listen(port, option.host);
 
     server.on('listening', () => {
         let addr = server.address();

@@ -1,5 +1,5 @@
 import path from 'path';
-import FileCache from '../../common/file.cache';
+import FileCache from '../../../src/util/common/file.cache';
 
 module.exports = (gulp, Plugin, config) => {
     let fileCache = new FileCache();

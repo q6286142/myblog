@@ -5,7 +5,6 @@
  *  初始化 mongoose 信息
  */
 import mongoose from 'mongoose';
-import promise from 'bluebird';
 import { exec } from 'child-process-promise';
 import fs from 'fs';
 import path from 'path';
@@ -124,7 +123,7 @@ function createDBUser() {
 
 function connectDB(callBack) {
     //console.log('\n<-- 初始化 mongoose 数据库连接 -->');
-    mongoose.Promise = promise;
+    mongoose.Promise = global.Promise;
     mongoose.connect(dbconfig.connect, (err) => {
         if (err) {
             throw err;

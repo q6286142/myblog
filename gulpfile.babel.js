@@ -4,7 +4,10 @@ import glob from 'glob';
 import GulpConfig from './tools/gulp/gulp.config';
 
 let gulpConfig = GulpConfig(__dirname);
-glob.sync('./tools/gulp/task/**/*.js').forEach((fileName)=>{
+let list = new glob.GlobSync('./tools/gulp/task/**/*.task.js');
+// glob.sync('./tools/gulp/task/**/*.js');
+
+list.found.forEach((fileName)=>{
     require(fileName)(gulp, Plugin(), gulpConfig);
 });
 

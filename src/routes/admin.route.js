@@ -1,13 +1,14 @@
 import express from 'express';
 var router = express.Router();
 
-
-
-/* GET admin index page. */
 router.get(/(\/index)?/, function(req, res, next) {
   res.render('admin/index',);
 });
 
-//module.exports = router;
+module.exports = (app) => {
+  app.use(router);
+}
+/* GET admin index page. */
 
-export default router;
+
+//module.exports = router;

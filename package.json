@@ -22,15 +22,15 @@
   "private": true,
   "scripts": {
     "start": "node ./dist/start.js",
-    "es6-start": "babel-node ./src/start.js",
-    "publish": "gulp publish",
+    "develop": "gulp develop",
+    "debug": "babel-node ./src/start.js",
+    "build": "gulp publish",
     "test": "gulp test"
   },
   "dependencies": {
     "babel-cli": "^6.10.1",
     "babel-polyfill": "^6.9.1",
     "babel-register": "^6.9.0",
-    "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "child-process-promise": "^2.0.3",
     "compression": "^1.6.2",
